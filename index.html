@@ -17,29 +17,29 @@
     <img class="logo" src="./assets/logo.gif" alt="logo-convert-money">
 
     <main>
+
+        <button class="theme-toggle">🌙</button>
+
         <label>
             Converter <b>de</b>
-            <select>
-
-                <option>R$ Real Brasileiro </option>
-
+            <select class="from-currency">
+                <option value="BRL">Real (BRL)</option>
+                <option value="USD">Dólar (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="GBP">Libra (GBP)</option>
             </select>
-
         </label>
 
-        <label>
+        <button class="swap-button">⇄</button>
 
+        <label>
             Converter <b>para</b>
             <select class="currency-select">
-                
-                <option value="dolar">US$ Dólar Americano</option>
-                <option value="euro">€ Euro</option>
-                <option value="real">R$ Real Brasileiro</option>
-                <option value="bitcoin"> ₿ Bitcoin</option>
-                <option value="libra">£ Libra</option>
-
+                <option value="USD">Dólar (USD)</option>
+                <option value="EUR">Euro (EUR)</option>
+                <option value="BRL">Real (BRL)</option>
+                <option value="GBP">Libra (GBP)</option>
             </select>
-
         </label>
 
         <label>
@@ -50,12 +50,14 @@
         </label>
 
         <button class="convert-button">Converter</button>
+        <p class="status-message"></p>
+        <div class="loader hidden"></div>
 
         <section>
 
             <div class="currency-box">
-                <img src="./assets/real.png" alt="logo-moeda-a-converter">
-                <p class="currency">Real</p>
+                <img class="currency-img-from" src="./assets/real.png">
+                <p class="currency" id="currency-name-from">Real</p>
                 <p class="currency-value-to-convert">R$ 0,00</p>
             </div>
 
@@ -69,10 +71,29 @@
 
         </section>
 
+        <div class="history">
+            <h3>Histórico</h3>
+            <ul class="history-list"></ul>
+        </div>
 
-
+        <button class="clear-history">Limpar histórico</button>
 
     </main>
+
+    <div class="modal hidden" id="confirm-modal">
+        <div class="modal-content">
+            <p>Deseja realmente limpar o histórico?</p>
+
+            <div class="modal-actions">
+                <button class="cancel-btn">Cancelar</button>
+                <button class="confirm-btn">Limpar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast hidden" id="toast"></div>
+
 </body>
-  <script src="./scripts.js"></script>
+<script src="./scripts.js"></script>
+
 </html>
